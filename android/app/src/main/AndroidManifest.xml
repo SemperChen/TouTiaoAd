@@ -1,0 +1,58 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.toutiaoad">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+            android:authorities="${applicationId}.TTFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+            android:authorities="${applicationId}.TTMultiProvider"
+            android:exported="false" />
+    </application>
+
+    <!-- 必须要有的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 如果有视频相关的广告且使用textureView播放，请务必添加，否则黑屏 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 最好能提供的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-sdk tools:overrideLibrary="android.support.v7.appcompat, android.support.v7.recyclerview,com.dingmouren.layoutmanagergroup,com.zyyoona7.lib,com.squareup.leakcanary, com.squareup.leakcanary.analyzer, com.squareup.leakcanary.android.noop" />
+
+
+</manifest>
